@@ -13,7 +13,7 @@ class Page
         "data" => []
     ];
     // construct method
-    public function __construct($opts = array())
+    public function __construct($opts = array(), $tpl_dir = "/views/")
     {
         // mescla os array e o ultimo sobscreve o primeiro
         $this->options = array_merge($this->defaults, $opts);
@@ -22,7 +22,7 @@ class Page
         uma pasta em cache*/
         //$_SERVER vai dizer onde esta a pasta, o diretorio root do servidor
         $config = array(
-            "tpl_dir"       =>$_SERVER["DOCUMENT_ROOT"] . "/views/", // pasta criada
+            "tpl_dir"       =>$_SERVER["DOCUMENT_ROOT"] . $tpl_dir, // pasta criada
             "cache_dir"     =>$_SERVER["DOCUMENT_ROOT"] . "/views-cache/", // pasta criada
             "debug"         => false 
         );
