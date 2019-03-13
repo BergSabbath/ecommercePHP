@@ -260,7 +260,7 @@ babel-core@^5.8.33, babel-core@~5.8.3:
     js-tokens "1.0.1"
     json5 "^0.4.0"
     lodash "^3.10.0"
-    minimatch "^2.0.3"
+    minimatch "^3.0.2"
     output-file-sync "^1.1.0"
     path-exists "^1.0.0"
     path-is-absolute "^1.0.0"
@@ -882,8 +882,8 @@ bootlint@^0.12.0:
     semver "^4.3.0"
     void-elements "^2.0.1"
 
-brace-expansion@^1.0.0:
-  version "1.1.6"
+brace-expansion@^1.1.7:
+  version "1.1.7"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.6.tgz#7197d7eaa9b87e648390ea61fc66c84427420df9"
   dependencies:
     balanced-match "^0.4.1"
@@ -1052,8 +1052,8 @@ cli-width@^1.0.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-1.1.1.tgz#a4d293ef67ebb7b88d4a4d42c0ccf00c4d1e366d"
 
-cli@0.6.x:
-  version "0.6.6"
+cli@^1.0.0:
+  version "1.0.0"
   resolved "https://registry.yarnpkg.com/cli/-/cli-0.6.6.tgz#02ad44a380abf27adac5e6f0cdd7b043d74c53e3"
   dependencies:
     exit "0.1.2"
@@ -1240,8 +1240,8 @@ cross-spawn@^3.0.0:
     lru-cache "^4.0.1"
     which "^1.2.9"
 
-cryptiles@0.2.x:
-  version "0.2.2"
+cryptiles@4.1.2:
+  version "4.1.2"
   resolved "https://registry.yarnpkg.com/cryptiles/-/cryptiles-0.2.2.tgz#ed91ff1f17ad13d3748288594f8a48a0d26f325c"
   dependencies:
     boom "0.4.x"
@@ -1337,8 +1337,8 @@ dateformat@1.0.2-1.2.3:
   version "1.0.2-1.2.3"
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-1.0.2-1.2.3.tgz#b0220c02de98617433b72851cf47de3df2cdbee9"
 
-debug@^2.1.1, debug@^2.2.0, debug@~2.2.0:
-  version "2.2.0"
+debug@^2.6.9, debug@^2.6.9, debug@~2.6.9:
+  version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
     ms "0.7.1"
@@ -1419,8 +1419,8 @@ deep-equal@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-0.0.0.tgz#99679d3bbd047156fcd450d3d01eeb9068691e83"
 
-deep-extend@~0.4.0:
-  version "0.4.1"
+deep-extend@^0.5.1:
+  version "0.5.1"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.1.tgz#efe4113d08085f4e6f9687759810f807469e2253"
 
 deep-is@~0.1.3:
@@ -1885,8 +1885,8 @@ extend-shallow@^2.0.1:
   dependencies:
     is-extendable "^0.1.0"
 
-extend@^3.0.0, extend@~3.0.0:
-  version "3.0.0"
+extend@^3.0.2, extend@~3.0.2:
+  version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.0.tgz#5a474353b9f3353ddd8176dfd37b91c83a46f1d4"
 
 extglob@^0.3.1:
@@ -2060,12 +2060,12 @@ form-data@~2.1.1:
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
 
-forwarded@~0.1.0:
-  version "0.1.0"
+forwarded@~0.1.2:
+  version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.0.tgz#19ef9874c4ae1c297bcf078fde63a09b66a84363"
 
-fresh@0.3.0:
-  version "0.3.0"
+fresh@0.5.2:
+  version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.3.0.tgz#651f838e22424e7566de161d8358caa199f83d4f"
 
 fs-readdir-recursive@^0.1.0:
@@ -2647,12 +2647,12 @@ hawk@1.1.1:
     hoek "0.9.x"
     sntp "0.2.x"
 
-hoek@0.9.x:
-  version "0.9.1"
+hoek@^4.2.1:
+  version "4.2.1"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-0.9.1.tgz#3d322462badf07716ea7eb85baf88079cddce505"
 
-hoek@2.x.x:
-  version "2.16.3"
+hoek@^4.2.1:
+  version "4.2.1"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
 home-or-tmp@^1.0.0:
@@ -3519,8 +3519,8 @@ lodash.toplainobject@^3.0.0:
     lodash._basecopy "^3.0.0"
     lodash.keysin "^3.0.0"
 
-lodash@^2.4.1, lodash@~2.4.1:
-  version "2.4.2"
+lodash@^4.17.11, lodash@~4.17.11:
+  version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
 
 lodash@^3.10.0, lodash@^3.3.0, lodash@^3.3.1, lodash@^3.5.0, lodash@^3.6.0, lodash@^3.7.0, lodash@^3.9.3, lodash@~3.10.0, lodash@~3.10.1:
@@ -3685,11 +3685,11 @@ mime-types@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-1.0.2.tgz#995ae1392ab8affcbfcb2641dd054e943c0d5dce"
 
-mime@~1.2.11:
-  version "1.2.11"
+mime@~1.4.1:
+  version "1.4.1"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.2.11.tgz#58203eed86e3a5ef17aed2b7d9ebd47f0a60dd10"
 
-mime@1.3.4:
+mime@1.4.1:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.3.4.tgz#115f9e3b6b3daf2959983cb38f149a2d40eb5d53"
 
@@ -3759,8 +3759,8 @@ ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
 
-multimatch@^2.0.0:
-  version "2.1.0"
+multimatch@^3.0.2:
+  version "3.0.2"
   resolved "https://registry.yarnpkg.com/multimatch/-/multimatch-2.1.0.tgz#9c7906a22fb4c02919e2f5f75161b4cdbd4b2a2b"
   dependencies:
     array-differ "^1.0.0"
@@ -4222,8 +4222,8 @@ qs@6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.2.0.tgz#3b7848c03c2dece69a9522b0fae8c4126d745f3b"
 
-randomatic@^1.1.3:
-  version "1.1.5"
+randomatic@^3.0.0:
+  version "3.0.0"
   resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-1.1.5.tgz#5e9ef5f2d573c67bd2b8124ae90b5156e457840b"
   dependencies:
     is-number "^2.0.2"
@@ -4439,8 +4439,8 @@ replace-ext@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-0.0.1.tgz#29bbd92078a739f0bcce2b4ee41e837953522924"
 
-request@^2.61.0, request@2:
-  version "2.78.0"
+request@^2.68.0, request@2:
+  version "2.68.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.78.0.tgz#e1c8dec346e1c81923b24acdb337f11decabe9cc"
   dependencies:
     aws-sign2 "~0.6.0"
@@ -4738,8 +4738,8 @@ squeak@^1.0.0:
     console-stream "^0.1.1"
     lpad-align "^1.0.1"
 
-sshpk@^1.7.0:
-  version "1.10.1"
+sshpk@^1.13.2:
+  version "1.13.2"
   resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.10.1.tgz#30e1a5d329244974a1af61511339d595af6638b0"
   dependencies:
     asn1 "~0.2.3"
@@ -4986,8 +4986,8 @@ to-single-quotes@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/to-single-quotes/-/to-single-quotes-2.0.1.tgz#7cc29151f0f5f2c41946f119f5932fe554170125"
 
-tough-cookie@>=0.12.0, tough-cookie@~2.3.0:
-  version "2.3.2"
+tough-cookie@>=2.3.3, tough-cookie@~2.3.3
+  version "2.3.3
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.2.tgz#f081f76e4c85720e6c37a5faced737150d84072a"
   dependencies:
     punycode "^1.4.1"
