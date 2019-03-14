@@ -10,6 +10,8 @@ class Page
     private $tpl;
     private $options = [];
     private $defaults = [
+        "header" => true,
+        "footer" => true,
         "data" => []
     ];
     // construct method
