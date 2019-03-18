@@ -36,7 +36,7 @@ class Page
         $this->setData($this->options["data"]);//chamando o metodo setData que está 
         //criando na linha 42.
 
-        $this->tpl->draw("header");// para criar o cabeça iniciais do HTML
+        if ($this->options["header"] === true) $this->tpl->draw("header");// para criar o cabeça iniciais do HTML
     
     }
 
@@ -58,7 +58,7 @@ class Page
     //destruct method
     public function __destruct()
     {
-        $this->tpl->draw("footer");// criar a parte final da pagina HTML
+        if ($this->options["header"] === true) $this->tpl->draw("footer");// criar a parte final da pagina HTML
     
 
     }
