@@ -6,7 +6,7 @@ use Rain\Tpl;
 
 class Mailer {
     const USERNAME = "bergfuria@gmail.com";
-    const PASSWORD = "123testando";
+    const PASSWORD = "testeryuken";
     const NAME_FROM = "Hcode Store";
 
     private $mail;
@@ -14,7 +14,7 @@ class Mailer {
     public function __construct($toAddress, $toName, $subject, $tplName, $data = array())
     {
         $config = array(
-            "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."views/email/",
+            "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."/views/email/",
             "cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/views-cache/",
             "debug"         =>false
         );
@@ -51,6 +51,14 @@ class Mailer {
         
         //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
         $this->mail->Port = 587;
+//trecho novo adicionado
+        $this->mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
         
         //Set the encryption system to use - ssl (deprecated) or tls
         $this->mail->SMTPSecure = 'tls';

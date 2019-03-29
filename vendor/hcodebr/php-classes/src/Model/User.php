@@ -10,6 +10,7 @@ class User extends Model{
 
     const SESSION = "User";
     const SECRET = "HcodePhp7_Secret";
+    const METHOD = "aes-128-gcm";
 
     public static function login($login, $password)
     {
@@ -102,7 +103,7 @@ class User extends Model{
     {
         $sql = new Sql();
 
-        $result = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+        $results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
             ":iduser" => $this->getiduser(),
             ":desperson" => $this->getdesperson(),
             ":deslogin" => $this->getdeslogin(),
@@ -156,8 +157,12 @@ class User extends Model{
                 
                 $dataRecovery = $results2[0];
 
-                $code = base64_encode(openssl_encrypt(User::SECRET, $dataRecovery["idrecovery"], MCRYPT_MODE_ECB));
+                $ivlen = openssl_cipher_iv_length(User::METHOD);
+                $iv = openssl_random_pseudo_bytes($ivlen);
+                $options = 0;
+                $tag_length = 16;
 
+                $code = base64_encode(openssl_encrypt(User::SECRET, User::METHOD, $dataRecovery["idrecovery"], $options, $iv, $tag_length));
                 $link = "http://www.hcodecommerce.com.br/admin/forgot/reset?code=$code";
                 $mailer = new Mailer($data["desemail"], $data["desperson"], "Redefinir Senha da Hcode Store", "forgot", array(
                         "name" => $data["desperson"],
@@ -174,7 +179,13 @@ class User extends Model{
 
     public static function validForgotDecrypt($code)
     {
-        $idrecovery = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, User::SECRET, base64_decode($code), MCRYPT_MODE_ECB);
+
+        $ivlen = openssl_cipher_iv_length(User::METHOD);
+        $iv = openssl_random_pseudo_bytes($ivlen);
+        $options = 1;
+        $tag_length = 16;
+
+        $idrecovery = openssl_decrypt(base64_decode($code), User::METHOD, User::SECRET, $options, $iv, $tag_length);
 
         $sql = new Sql();
 
@@ -190,7 +201,7 @@ class User extends Model{
                 AND
                 DATE_ADD(a.dtregister, INTERVAL 1 HOUR) >= NOW();
         ", array(
-            "id:recovery"=> $idrecovery
+            ":idrecovery"=> $idrecovery
         ));
 
         if (count($results) === 0)
