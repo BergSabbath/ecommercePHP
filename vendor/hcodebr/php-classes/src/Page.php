@@ -4,9 +4,8 @@ namespace Hcode;
 
 use Rain\Tpl;
 
-class Page 
-{
-    //atributos da classse
+class Page {
+
     private $tpl;
     private $options = [];
     private $defaults = [
@@ -14,56 +13,53 @@ class Page
         "footer" => true,
         "data" => []
     ];
-    // construct method
+
+
     public function __construct($opts = array(), $tpl_dir = "/views/")
     {
-        // mescla os array e o ultimo sobscreve o primeiro
+        $this->defaults["data"]["session"] = $_SESSION;
+
         $this->options = array_merge($this->defaults, $opts);
-        //template configuration
-        /*precisa de uma pasta para pegar os arquivos HTML e
-        uma pasta em cache*/
-        //$_SERVER vai dizer onde esta a pasta, o diretorio root do servidor
+
         $config = array(
-            "tpl_dir"       =>$_SERVER["DOCUMENT_ROOT"] . $tpl_dir, // pasta criada
-            "cache_dir"     =>$_SERVER["DOCUMENT_ROOT"] . "/views-cache/", // pasta criada
-            "debug"         => false 
+            "tpl_dir"   => $_SERVER["DOCUMENT_ROOT"].$tpl_dir,
+            "cache_dir" => $_SERVER["DOCUMENT_ROOT"]."/views-cache/",
+            "debug"     => false
+
         );
 
         Tpl::configure( $config );
 
         $this->tpl = new Tpl;
 
-        $this->setData($this->options["data"]);//chamando o metodo setData que está 
-        //criando na linha 42.
+        $this->setData($this->options["data"]);
 
-        if ($this->options["header"] === true) $this->tpl->draw("header");// para criar o cabeça iniciais do HTML
-    
+        if ($this->options["header"] === true) $this->tpl->draw("header");
+
     }
 
-    //para pegar os dados
-    private function setData($data = array())
+    public function setData($data = array())
     {
         foreach ($data as $key => $value) {
             $this->tpl->assign($key, $value);
+            
         }
-
     }
-    
+
     public function setTpl($name, $data = array(), $returnHTML = false)
     {
-        $this->setdata($data);
+        $this->setData($data);
 
         return $this->tpl->draw($name, $returnHTML);
     }
-    //destruct method
+
+
+
     public function __destruct()
     {
-        if ($this->options["header"] === true) $this->tpl->draw("footer");// criar a parte final da pagina HTML
-    
-
+        if ($this->options["footer"] === true) $this->tpl->draw("footer");
     }
 
 }
-
 
 ?>

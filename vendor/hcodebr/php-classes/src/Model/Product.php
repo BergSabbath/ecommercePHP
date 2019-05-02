@@ -131,6 +131,7 @@ class Product extends Model{
 
         $this->checkPhoto();
     }
+
     public function getFromURL($desurl)
     {
         $sql = new Sql();

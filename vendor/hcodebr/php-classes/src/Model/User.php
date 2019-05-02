@@ -9,8 +9,8 @@ use \Hcode\Mailer;
 class User extends Model{
 
     const SESSION = "User";
-    const SECRET = "HcodePhp7_Secret";
-    const METHOD = "aes-128-gcm";
+    const SECRET = "HcodePhp7_Secret";//$key
+    const METHOD = "aes-128-gcm";//$cipher
 
     public static function getFromSession()
     {
@@ -75,6 +75,8 @@ class User extends Model{
 
             $user = new User();
 
+            // $data['desperson'] = utf8_encode($data['desperson']);
+
             $user->setData($data);
 
             $_SESSION[User::SESSION] = $user->getValues();
@@ -91,8 +93,8 @@ class User extends Model{
         if (User::checkLogin($inadmin)) {
 
             header("Location: /admin/login");
-            exit;
-        }
+                exit;
+            }
     }
 
     public static function logout()
@@ -165,8 +167,8 @@ class User extends Model{
     {
         $sql = new Sql();
 
-        $results = $sql->select("
-        SELECT * FROM tb_persons a 
+        $results = $sql->select("SELECT * 
+        FROM tb_persons a 
         INNER JOIN tb_users b USING(idperson)
         WHERE a.desemail = :email;
         ", array(
@@ -195,19 +197,18 @@ class User extends Model{
 
                 $ivlen = openssl_cipher_iv_length(User::METHOD);
                 $iv = openssl_random_pseudo_bytes($ivlen);
-                $options = 0;
                 $tag_length = 16;
 
-                $code = base64_encode(openssl_encrypt(User::SECRET, User::METHOD, $dataRecovery["idrecovery"], $options, $iv, $tag_length));
+                $code = base64_encode(openssl_encrypt($dataRecovery["idrecovery"], User::METHOD, User::SECRET, $options=0, $iv, $tag_length));
                 $link = "http://www.hcodecommerce.com.br/admin/forgot/reset?code=$code";
                 $mailer = new Mailer($data["desemail"], $data["desperson"], "Redefinir Senha da Hcode Store", "forgot", array(
-                        "name" => $data["desperson"],
-                        "link" => $link
-                    ));
-
-                    $mailer->send();
-
-                    return $data;
+                                "name" => $data["desperson"],
+                                "link" => $link
+                            ));
+        
+                            $mailer->send();
+        
+                            return $data;
             }
 
         }
@@ -215,18 +216,15 @@ class User extends Model{
 
     public static function validForgotDecrypt($code)
     {
-
         $ivlen = openssl_cipher_iv_length(User::METHOD);
         $iv = openssl_random_pseudo_bytes($ivlen);
-        $options = 1;
         $tag_length = 16;
 
-        $idrecovery = openssl_decrypt(base64_decode($code), User::METHOD, User::SECRET, $options, $iv, $tag_length);
-
+        $idrecovery = openssl_decrypt(base64_decode($code), User::METHOD, User::SECRET, $options=0, $iv, $tag_length);
+        
         $sql = new Sql();
 
-        $results = $sql->select("
-            SELECT * 
+        $results = $sql->select("SELECT * 
             FROM tb_userspasswordsrecoveries a 
             INNER JOIN tb_users b USING(iduser)
             INNER JOIN tb_persons c USING(idperson)
@@ -246,7 +244,6 @@ class User extends Model{
         } else
         {
             return $results[0];
-
         }
 
     }

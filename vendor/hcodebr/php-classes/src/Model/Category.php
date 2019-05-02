@@ -10,7 +10,6 @@ class Category extends Model{
 
     public static function listAll()
     {
-        
         $sql = new Sql();
 
         return $sql->select("SELECT * FROM tb_categories ORDER BY descategory");
@@ -74,7 +73,7 @@ class Category extends Model{
         if ($related === true) {
             
             return $sql->select("SELECT * FROM tb_products WHERE idproduct IN(
-                SELECT a.idproduct
+                    SELECT a.idproduct
                     FROM tb_products a
                     INNER JOIN tb_productscategories b ON a.idproduct = b.idproduct
                     WHERE b.idcategory = :idcategory

@@ -90,8 +90,6 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
 
 });
 
-
-
 $app->get("/admin/categories/:idcategory/products", function($idcategory) {
 
     User::verifyLogin();
